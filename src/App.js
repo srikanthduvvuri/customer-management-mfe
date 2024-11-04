@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import CustomerList from './components/CustomerList';
+import CustomerForm from './components/CustomerForm';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [refresh, setRefresh] = useState(false);
+
+    const handleCustomerAdded = () => {
+        setRefresh(prev => !prev); // Toggle refresh to reload customer list
+    };
+
+    return (
+        <div>
+            <h1>Customer Management System</h1>
+            <CustomerForm onCustomerAdded={handleCustomerAdded} />
+            <CustomerList />
+        </div>
+    );
+};
 
 export default App;
