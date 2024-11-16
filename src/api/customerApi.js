@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5001/api/customers'; // Update with your backend URL
+// Update with backend URL; Real life environment this needs to be read from ENV variable
+const API_URL = 'http://127.0.0.1:61473/api/customers'; 
+
+//const API_URL = 'http://localhost:5001/api/customers'; // Update with backend URL
 
 export const getCustomers = async () => {
     return await axios.get(API_URL);
